@@ -6,6 +6,10 @@ const PORT = process.env.PORTA || 3000;
 
 app.use(express.json());
 
+app.get("/", async (req, res) => {
+  return res.status(200).json({ Mensagem: "Servidor, roda OK" });
+});
+
 app.get("/posts", async (req, res) => {
   try {
     const { data } = await instanciaAxios.get("https://jsonplaceholder.typicode.com/posts");
